@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TbSparkles } from 'react-icons/tb'
-import envelop from './assets/Envelop.png'
+import envelop from './assets/Envelop.webp'
 import bg from './assets/bg.webp'
-import photoIntro from './assets/PhotoIntro.webp'
-import chapel1 from './assets/chapel1.jpg'
-import reception from './assets/reception.jpg'
+import photoIntro from './assets/PhotoIntro_opt.webp'
+import chapel1 from './assets/chapel1.webp'
+import reception from './assets/reception.webp'
 
 
 const INTRO_PAGES = [
@@ -359,7 +359,6 @@ function VenueSection() {
             src={chapel1}
             alt="St. Therese of the Child Jesus and the Holy Face Parish Church"
             className="venue-film-photo"
-            loading="lazy"
           />
         </motion.div>
 
@@ -416,7 +415,6 @@ function VenueSection() {
             src={reception}
             alt="Reception venue"
             className="venue-film-photo"
-            loading="lazy"
           />
         </motion.div>
 
