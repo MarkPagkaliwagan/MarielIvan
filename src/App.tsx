@@ -12,22 +12,22 @@ const INTRO_PAGES = [
   {
     text: 'Every story has its beginning.',
     overlay: 'rgba(252,228,236,0.72)',
-    textColor: '#880e4f',
+    textColor: '#ffffff',
   },
   {
     text: 'Every chapter has its own kind of magic.',
     overlay: 'rgba(232,234,246,0.78)',
-    textColor: '#1a237e',
+    textColor: '#ffffff',
   },
   {
     text: 'Every era brought us closer to forever.',
     overlay: 'rgba(243,229,245,0.75)',
-    textColor: '#4a148c',
+    textColor: '#ffffff',
   },
   {
     text: 'Now, our next era begins.',
     overlay: 'rgba(255,243,224,0.72)',
-    textColor: '#8a5a1e',
+    textColor: '#ffffff',
   },
 ]
 
@@ -164,14 +164,14 @@ function IntroPage({ text, textColor, onDone }: { text: string; textColor: strin
     >
       <div className="relative flex flex-col items-center gap-4 max-w-2xl text-center">
         <motion.p
-          className="text-lg sm:text-3xl md:text-5xl text-center whitespace-normal sm:whitespace-nowrap"
+          className="text-xl sm:text-4xl md:text-6xl text-center whitespace-normal sm:whitespace-nowrap"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 600,
             fontStyle: 'italic',
             color: textColor,
             letterSpacing: '0.02em',
-            textShadow: '0 2px 12px rgba(255,255,255,0.6)',
+            textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3)',
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -569,13 +569,7 @@ function App() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${photoIntro})` }}
           />
-          <div
-            className="absolute inset-0 page-glitter"
-            style={{
-              backgroundColor: INTRO_PAGES[Math.min(introPage, INTRO_PAGES.length - 1)].overlay,
-              transition: 'background-color 1s ease',
-            }}
-          />
+          <div className="absolute inset-0 page-glitter" />
         </div>
       )}
 
