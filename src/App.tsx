@@ -576,8 +576,8 @@ function App() {
           </div>
         </>
       )}
-      <SparkleCanvas />
-      <FloatingDecor />
+      {showMain && <SparkleCanvas />}
+      {showMain && <FloatingDecor />}
       {showMain && (
         <>
           <MainHero />
