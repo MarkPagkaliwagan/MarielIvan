@@ -3,28 +3,32 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { TbSparkles } from 'react-icons/tb'
 import envelop from './assets/Envelop.png'
 import bg from './assets/bg.webp'
+import photoIntro from './assets/PhotoIntro.png'
+import chapel1 from './assets/chapel1.jpg'
+import chapel2 from './assets/chapel2.jpg'
+import chapel3 from './assets/chapel3.jpg'
 
 
 const INTRO_PAGES = [
   {
     text: 'Every story has its beginning.',
-    bg: 'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 100%)',
+    overlay: 'rgba(252,228,236,0.72)',
     textColor: '#880e4f',
   },
   {
     text: 'Every chapter has its own kind of magic.',
-    bg: 'linear-gradient(135deg, #e8eaf6 0%, #c5cae9 50%, #9fa8da 100%)',
+    overlay: 'rgba(232,234,246,0.78)',
     textColor: '#1a237e',
   },
   {
     text: 'Every era brought us closer to forever.',
-    bg: 'linear-gradient(135deg, #f3e5f5 0%, #ce93d8 50%, #ba68c8 100%)',
+    overlay: 'rgba(243,229,245,0.75)',
     textColor: '#4a148c',
   },
   {
     text: 'Now, our next era begins.',
-    bg: 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 50%, #ffcc80 100%)',
-    textColor: '#e65100',
+    overlay: 'rgba(255,243,224,0.72)',
+    textColor: '#8a5a1e',
   },
 ]
 
@@ -33,14 +37,15 @@ const TRANSITION_DELAY = 300
 
 function SparkleCanvas() {
   const particles = useMemo(() =>
-    Array.from({ length: 50 }, (_, i) => ({
+    Array.from({ length: 120 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 3 + 1,
-      duration: Math.random() * 4 + 3,
+      size: Math.random() * 5 + 2,
+      duration: Math.random() * 4 + 2,
       delay: Math.random() * 5,
-      opacity: Math.random() * 0.4 + 0.1,
+      opacity: Math.random() * 0.5 + 0.5,
+      gold: Math.random() > 0.35,
     })), [])
 
   return (
@@ -54,12 +59,17 @@ function SparkleCanvas() {
             top: `${p.y}%`,
             width: p.size,
             height: p.size,
-            background: `radial-gradient(circle, rgba(255,215,0,${p.opacity}), rgba(255,182,193,${p.opacity * 0.8}))`,
+            background: p.gold
+              ? `radial-gradient(circle, rgba(255,223,100,1), rgba(200,164,106,0.8))`
+              : `radial-gradient(circle, rgba(255,255,255,1), rgba(255,200,220,0.8))`,
+            boxShadow: p.gold
+              ? `0 0 ${p.size * 4}px rgba(255,215,0,0.9), 0 0 ${p.size * 8}px rgba(200,164,106,0.6), 0 0 ${p.size * 14}px rgba(255,215,0,0.3)`
+              : `0 0 ${p.size * 3}px rgba(255,255,255,0.8), 0 0 ${p.size * 7}px rgba(255,182,193,0.5)`,
           }}
           animate={{
-            opacity: [0, p.opacity, 0],
-            scale: [0, 1, 0],
-            y: [0, -20, -40],
+            opacity: [0, p.opacity, p.opacity * 0.3, p.opacity, 0],
+            scale: [0, 1.3, 0.7, 1.1, 0],
+            y: [0, -10, -25, -40, -55],
           }}
           transition={{
             duration: p.duration,
@@ -97,12 +107,13 @@ function FloatingDecor() {
             left: item.x,
             top: item.y,
             fontSize: item.size,
-            color: 'rgba(192,132,252,0.25)',
+            color: 'rgba(200,164,106,0.5)',
+            textShadow: '0 0 12px rgba(255,215,0,0.6), 0 0 24px rgba(200,164,106,0.3)',
           }}
           animate={{
             y: [0, -12, 0],
             rotate: [0, 8, -8, 0],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.3, 0.7, 0.3],
           }}
           transition={{
             duration: item.dur,
@@ -118,7 +129,7 @@ function FloatingDecor() {
   )
 }
 
-function IntroPage({ text, bg, textColor, onDone }: { text: string; bg: string; textColor: string; onDone: () => void }) {
+function IntroPage({ text, overlay, textColor, onDone }: { text: string; overlay: string; textColor: string; onDone: () => void }) {
   const [displayed, setDisplayed] = useState('')
   const [done, setDone] = useState(false)
 
@@ -146,22 +157,27 @@ function IntroPage({ text, bg, textColor, onDone }: { text: string; bg: string; 
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center p-6 page-glitter"
-      style={{ background: bg }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${photoIntro})` }}
+      />
+      <div className="absolute inset-0 page-glitter" style={{ background: overlay }} />
       <div className="relative flex flex-col items-center gap-4 max-w-2xl text-center">
         <motion.p
-          className="text-xl sm:text-3xl md:text-5xl whitespace-nowrap"
+          className="text-lg sm:text-3xl md:text-5xl text-center whitespace-normal sm:whitespace-nowrap"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontWeight: 400,
+            fontWeight: 600,
             fontStyle: 'italic',
             color: textColor,
             letterSpacing: '0.02em',
+            textShadow: '0 2px 12px rgba(255,255,255,0.6)',
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -175,37 +191,204 @@ function IntroPage({ text, bg, textColor, onDone }: { text: string; bg: string; 
   )
 }
 
+function Countdown() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+
+  useEffect(() => {
+    const target = new Date('2027-02-13T00:00:00').getTime()
+    const tick = () => {
+      const now = Date.now()
+      const diff = Math.max(0, target - now)
+      setTimeLeft({
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        seconds: Math.floor((diff % 60000) / 1000),
+      })
+    }
+    tick()
+    const interval = setInterval(tick, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const labelStyle = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#a67c34', fontSize: '0.65rem', letterSpacing: '0.15em' }
+  const numStyle = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e', textShadow: '0 0 15px rgba(200,164,106,0.2)' }
+
+  const units = [
+    { value: timeLeft.days, label: 'DAYS' },
+    { value: timeLeft.hours, label: 'HOURS' },
+    { value: timeLeft.minutes, label: 'MIN' },
+    { value: timeLeft.seconds, label: 'SEC' },
+  ]
+
+  return (
+    <motion.div
+      className="flex items-center justify-center gap-1.5 sm:gap-3 md:gap-4 w-full max-w-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.8 }}
+    >
+      {units.map((u, i) => (
+        <div key={u.label} className="flex items-center gap-1.5 sm:gap-3 md:gap-4 shrink-0">
+          <div
+            className="flex flex-col items-center justify-center px-2 py-1.5 sm:px-5 sm:py-4 md:px-6 md:py-5 rounded-xl sm:rounded-2xl border border-[#C8A46A33] bg-[#C8A46A08] backdrop-blur-sm"
+            style={{ minWidth: '3rem', maxWidth: '5rem' }}
+          >
+            <span className="text-lg sm:text-4xl md:text-5xl leading-none" style={numStyle}>
+              {String(u.value).padStart(2, '0')}
+            </span>
+            <span className="text-[6px] sm:text-[10px] mt-1 uppercase leading-none" style={labelStyle}>{u.label}</span>
+          </div>
+          {i < units.length - 1 && (
+            <span className="text-sm sm:text-2xl shrink-0" style={{ color: '#a67c3499' }}>→</span>
+          )}
+        </div>
+      ))}
+    </motion.div>
+  )
+}
+
 function MainHero() {
   return (
-    <div
-      className="min-h-dvh min-w-dvw relative overflow-hidden"
-    >
-      <div className="relative z-10 min-h-dvh flex flex-col items-center justify-center px-6 sm:px-10">
+    <div className="relative overflow-hidden">
+      <div className="relative z-10 flex flex-col items-center justify-center py-10 sm:py-12 md:py-16 px-6">
+        <motion.p
+          className="text-sm sm:text-base md:text-lg uppercase tracking-[0.3em] sm:tracking-[0.4em]"
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e', textShadow: '0 0 20px rgba(200,164,106,0.3)' }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          You Are Invited
+        </motion.p>
         <motion.div
-          className="flex flex-col items-center"
+          className="flex flex-col items-center mt-6 sm:mt-8 md:mt-10"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
         >
           <h1
-            className="text-[36px] sm:text-6xl md:text-7xl lg:text-8xl uppercase"
-            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#4a1550', lineHeight: 1.05, letterSpacing: '0.04em' }}
+            className="text-[38px] sm:text-6xl md:text-7xl lg:text-8xl text-center whitespace-nowrap"
+            style={{ fontFamily: "'Allura', cursive", fontWeight: 400, color: '#8a5a1e', lineHeight: 1.15, textShadow: '0 0 30px rgba(200,164,106,0.2)' }}
           >
             Mariel Alyssa
           </h1>
           <span
-            className="text-4xl sm:text-5xl md:text-6xl -my-1 sm:-my-2"
-            style={{ fontFamily: "'Great Vibes', cursive", color: '#b06a9a', fontWeight: 400 }}
+            className="text-3xl sm:text-4xl md:text-5xl -my-1"
+            style={{ fontFamily: "'Allura', cursive", color: '#a67c34', fontWeight: 400 }}
           >
             &
           </span>
           <h1
-            className="text-[36px] sm:text-6xl md:text-7xl lg:text-8xl uppercase"
-            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#4a1550', lineHeight: 1.05, letterSpacing: '0.04em' }}
+            className="text-[38px] sm:text-6xl md:text-7xl lg:text-8xl text-center whitespace-nowrap"
+            style={{ fontFamily: "'Allura', cursive", fontWeight: 400, color: '#8a5a1e', lineHeight: 1.15, textShadow: '0 0 30px rgba(200,164,106,0.2)' }}
           >
             Ivan Alexis
           </h1>
         </motion.div>
+
+        <motion.p
+          className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] sm:tracking-[0.35em] text-center mt-8 sm:mt-10"
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#8a5a1e', textShadow: '0 0 12px rgba(200,164,106,0.15)' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          As We Begin Our Forever
+        </motion.p>
+      </div>
+    </div>
+  )
+}
+
+function CountdownSection() {
+  return (
+    <div className="relative w-full py-12 sm:py-16 px-4 sm:px-6 eras-satin-bg">
+      <div className="relative max-w-3xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
+        <motion.p
+          className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] sm:tracking-[0.35em] text-center"
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
+          Days Left Before We Say I Do
+        </motion.p>
+        <Countdown />
+      </div>
+    </div>
+  )
+}
+
+const secLabel = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e', fontSize: '0.75rem', letterSpacing: '0.25em' }
+const secBody = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#5f4a26' }
+const secItalic = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#6f5330', fontStyle: 'italic' }
+const secVenue = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#5f4a26', letterSpacing: '0.05em' }
+
+function InfoSection() {
+  return (
+    <div className="relative w-full py-12 sm:py-16 px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto flex flex-col items-center gap-8 sm:gap-10">
+
+        <motion.div
+          className="flex flex-col items-center gap-3"
+          initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+        >
+          <span className="text-lg sm:text-xl" style={{ color: '#C8A46A' }}>✦</span>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.35em]" style={secLabel}>Reception to Follow</p>
+          <p className="text-base sm:text-lg text-center" style={secItalic}>"This Love Is Ours."</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
+          <motion.div
+            className="rounded-2xl p-6 sm:p-8 bg-white/60 backdrop-blur-sm border border-[#C8A46A22] shadow-sm flex flex-col items-center gap-3 text-center"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <span className="text-2xl" style={{ color: '#C8A46A' }}>⛪</span>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em]" style={secLabel}>The Ceremony</p>
+            <div className="w-10 h-px bg-gradient-to-r from-transparent via-[#C8A46A55] to-transparent" />
+            <p className="text-base sm:text-lg" style={secVenue}>St. Therese of the Child Jesus</p>
+            <p className="text-base sm:text-lg" style={secVenue}>and the Holy Face Parish Church</p>
+            <p className="text-xs sm:text-sm" style={secItalic}>Santo Tomas–Lipa Rd, Talisay, Lipa City, Batangas</p>
+            <p className="text-sm sm:text-base" style={secBody}>Saturday · At 12:30 PM</p>
+          </motion.div>
+
+          <motion.div
+            className="rounded-2xl p-6 sm:p-8 bg-white/60 backdrop-blur-sm border border-[#C8A46A22] shadow-sm flex flex-col items-center gap-3 text-center"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <span className="text-2xl" style={{ color: '#C8A46A' }}>🥂</span>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em]" style={secLabel}>The Reception</p>
+            <div className="w-10 h-px bg-gradient-to-r from-transparent via-[#C8A46A55] to-transparent" />
+            <p className="text-base sm:text-lg" style={secVenue}>At 10 22 Lipa</p>
+            <p className="text-xs sm:text-sm" style={secItalic}>Lipa-Alaminos Road, Brgy. Lumbang, Lipa City, Batangas</p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="rounded-2xl px-8 sm:px-12 py-6 sm:py-8 bg-gradient-to-br from-[#EFD7D066] to-[#E6CDB566] border border-[#C8A46A33] shadow-sm flex flex-col items-center gap-2 text-center w-full"
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <p className="text-4xl sm:text-5xl" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e' }}>13</p>
+          <p className="text-sm sm:text-base uppercase tracking-[0.3em]" style={secLabel}>February 2027</p>
+          <p className="text-xs sm:text-sm" style={secItalic}>Every love story has its chapters.</p>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.25em]" style={{ ...secBody, color: '#8a5a1e' }}>This is where our next era begins.</p>
+        </motion.div>
+
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-5 w-full">
+          {[chapel1, chapel2, chapel3].map((src, i) => (
+            <motion.div
+              key={i}
+              className="w-[30%] sm:w-[30%] aspect-[3/4] rounded-2xl overflow-hidden border border-[#C8A46A33] shadow-lg bg-white"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
+              whileHover={{ scale: 1.04, y: -6 }}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </div>
   )
@@ -233,21 +416,17 @@ function App() {
 
   return (
     <div
-      className="min-h-dvh min-w-dvw relative overflow-hidden"
-      style={{
-        background: `
-          radial-gradient(ellipse at 15% 30%, rgba(236,150,190,0.4) 0%, transparent 55%),
-          radial-gradient(ellipse at 85% 15%, rgba(200,130,210,0.35) 0%, transparent 55%),
-          radial-gradient(ellipse at 50% 90%, rgba(240,170,200,0.3) 0%, transparent 55%),
-          radial-gradient(ellipse at 75% 55%, rgba(220,160,210,0.25) 0%, transparent 45%),
-          radial-gradient(ellipse at 30% 70%, rgba(250,180,210,0.2) 0%, transparent 40%),
-          linear-gradient(155deg, #fdf2f8 0%, #f9d5e8 12%, #f0b8d8 25%, #dba8d0 35%, #d4a0d0 45%, #e0b0d8 55%, #f0c0e0 65%, #f5d0ea 75%, #fce7f3 88%, #fdf2f8 100%)
-        `,
-      }}
+      className="min-h-dvh w-full relative overflow-hidden dreamy-bg"
     >
       <SparkleCanvas />
       <FloatingDecor />
-      {showMain && <MainHero />}
+      {showMain && (
+        <>
+          <MainHero />
+          <CountdownSection />
+          <InfoSection />
+        </>
+      )}
 
       {!showMain && (
         <AnimatePresence>
@@ -255,7 +434,7 @@ function App() {
             <IntroPage
               key={introPage}
               text={INTRO_PAGES[introPage].text}
-              bg={INTRO_PAGES[introPage].bg}
+              overlay={INTRO_PAGES[introPage].overlay}
               textColor={INTRO_PAGES[introPage].textColor}
               onDone={handlePageDone}
             />
@@ -265,7 +444,7 @@ function App() {
 
       {!showMain && introPage < 0 && (
         <div
-          className={`min-h-dvh min-w-dvw flex items-center justify-center p-4 transition-opacity duration-700 ${envelopeClicked ? 'opacity-0' : 'opacity-100'}`}
+          className={`min-h-dvh w-full flex items-center justify-center p-4 transition-opacity duration-700 ${envelopeClicked ? 'opacity-0' : 'opacity-100'}`}
           style={{
             backgroundImage: `url(${bg})`,
             backgroundSize: 'cover',
@@ -276,7 +455,7 @@ function App() {
           <div className={`flex flex-col items-center gap-4 transition-opacity duration-700 ${envelopeClicked ? 'opacity-0' : 'opacity-100'}`}>
             <div className="flex flex-col items-center gap-1">
               <motion.h1
-                className="text-lg sm:text-4xl tracking-[0.1em] sm:tracking-[0.15em] uppercase whitespace-nowrap"
+                className="text-lg sm:text-4xl tracking-[0.1em] sm:tracking-[0.15em] uppercase text-center whitespace-normal sm:whitespace-nowrap"
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, color: '#9e5783' }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -285,7 +464,7 @@ function App() {
                 Mariel Alyssa & Ivan Alexis
               </motion.h1>
               <motion.p
-                className="text-xs sm:text-base tracking-wider italic whitespace-nowrap"
+                className="text-xs sm:text-base tracking-wider italic text-center whitespace-normal sm:whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#9e5783' }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -294,7 +473,7 @@ function App() {
                 This is where our next era begins.
               </motion.p>
               <motion.p
-                className="text-sm sm:text-xl tracking-[0.2em] sm:tracking-[0.3em] whitespace-nowrap"
+                className="text-sm sm:text-xl tracking-[0.2em] sm:tracking-[0.3em] text-center whitespace-normal sm:whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#9e5783' }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
