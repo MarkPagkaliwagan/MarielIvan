@@ -5,8 +5,7 @@ import envelop from './assets/Envelop.png'
 import bg from './assets/bg.webp'
 import photoIntro from './assets/PhotoIntro.webp'
 import chapel1 from './assets/chapel1.jpg'
-import chapel2 from './assets/chapel2.jpg'
-import chapel3 from './assets/chapel3.jpg'
+import reception from './assets/reception.jpg'
 
 
 const INTRO_PAGES = [
@@ -129,7 +128,7 @@ function FloatingDecor() {
   )
 }
 
-function IntroPage({ text, overlay, textColor, onDone }: { text: string; overlay: string; textColor: string; onDone: () => void }) {
+function IntroPage({ text, textColor, onDone }: { text: string; textColor: string; onDone: () => void }) {
   const [displayed, setDisplayed] = useState('')
   const [done, setDone] = useState(false)
 
@@ -163,11 +162,6 @@ function IntroPage({ text, overlay, textColor, onDone }: { text: string; overlay
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${photoIntro})` }}
-      />
-      <div className="absolute inset-0 page-glitter" style={{ background: overlay }} />
       <div className="relative flex flex-col items-center gap-4 max-w-2xl text-center">
         <motion.p
           className="text-lg sm:text-3xl md:text-5xl text-center whitespace-normal sm:whitespace-nowrap"
@@ -251,7 +245,7 @@ function Countdown() {
 function MainHero() {
   return (
     <div className="relative overflow-hidden">
-      <div className="relative z-10 flex flex-col items-center justify-center py-10 sm:py-12 md:py-16 px-6">
+      <div className="relative z-10 flex flex-col items-center justify-center py-6 sm:py-8 md:py-10 px-6">
         <motion.p
           className="text-sm sm:text-base md:text-lg uppercase tracking-[0.3em] sm:tracking-[0.4em]"
           style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e', textShadow: '0 0 20px rgba(200,164,106,0.3)' }}
@@ -262,7 +256,7 @@ function MainHero() {
           You Are Invited
         </motion.p>
         <motion.div
-          className="flex flex-col items-center mt-6 sm:mt-8 md:mt-10"
+          className="flex flex-col items-center mt-4 sm:mt-5 md:mt-6"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
@@ -288,7 +282,7 @@ function MainHero() {
         </motion.div>
 
         <motion.p
-          className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] sm:tracking-[0.35em] text-center mt-8 sm:mt-10"
+          className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] sm:tracking-[0.35em] text-center mt-5 sm:mt-6"
           style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#8a5a1e', textShadow: '0 0 12px rgba(200,164,106,0.15)' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -303,8 +297,8 @@ function MainHero() {
 
 function CountdownSection() {
   return (
-    <div className="relative w-full py-12 sm:py-16 px-4 sm:px-6 eras-satin-bg">
-      <div className="relative max-w-3xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
+    <div className="relative w-full py-6 sm:py-8 px-4 sm:px-6 eras-satin-bg">
+      <div className="relative max-w-3xl mx-auto flex flex-col items-center gap-4 sm:gap-5">
         <motion.p
           className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] sm:tracking-[0.35em] text-center"
           style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e' }}
@@ -321,75 +315,216 @@ function CountdownSection() {
   )
 }
 
-const secLabel = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e', fontSize: '0.75rem', letterSpacing: '0.25em' }
-const secBody = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#5f4a26' }
-const secItalic = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#6f5330', fontStyle: 'italic' }
-const secVenue = { fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#5f4a26', letterSpacing: '0.05em' }
-
-function InfoSection() {
+function VenueSection() {
   return (
-    <div className="relative w-full py-12 sm:py-16 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto flex flex-col items-center gap-8 sm:gap-10">
+    <div className="venue-section relative w-full py-10 sm:py-14 md:py-20 px-5 sm:px-8 md:px-14 lg:px-20">
+      <div className="venue-grain-overlay" />
 
+      {/* Section Intro */}
+      <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center mb-10 sm:mb-14 md:mb-20">
         <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.1 }}
           className="flex flex-col items-center gap-3"
-          initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
         >
-          <span className="text-lg sm:text-xl" style={{ color: '#C8A46A' }}>✦</span>
-          <p className="text-xs sm:text-sm uppercase tracking-[0.35em]" style={secLabel}>Reception to Follow</p>
-          <p className="text-base sm:text-lg text-center" style={secItalic}>"This Love Is Ours."</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
-          <motion.div
-            className="rounded-2xl p-6 sm:p-8 bg-white/60 backdrop-blur-sm border border-[#C8A46A22] shadow-sm flex flex-col items-center gap-3 text-center"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}
+          <span
+            className="text-[10px] sm:text-xs uppercase tracking-[0.35em] sm:tracking-[0.45em]"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#a67c34' }}
           >
-            <span className="text-2xl" style={{ color: '#C8A46A' }}>⛪</span>
-            <p className="text-xs sm:text-sm uppercase tracking-[0.3em]" style={secLabel}>The Ceremony</p>
-            <div className="w-10 h-px bg-gradient-to-r from-transparent via-[#C8A46A55] to-transparent" />
-            <p className="text-base sm:text-lg" style={secVenue}>St. Therese of the Child Jesus</p>
-            <p className="text-base sm:text-lg" style={secVenue}>and the Holy Face Parish Church</p>
-            <p className="text-xs sm:text-sm" style={secItalic}>Santo Tomas–Lipa Rd, Talisay, Lipa City, Batangas</p>
-            <p className="text-sm sm:text-base" style={secBody}>Saturday · At 12:30 PM</p>
-          </motion.div>
-
-          <motion.div
-            className="rounded-2xl p-6 sm:p-8 bg-white/60 backdrop-blur-sm border border-[#C8A46A22] shadow-sm flex flex-col items-center gap-3 text-center"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
+            ✦ Our Next Era ✦
+          </span>
+          <div className="venue-divider-long" />
+          <p
+            className="text-sm sm:text-base italic"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#8a7a5e', letterSpacing: '0.04em' }}
           >
-            <span className="text-2xl" style={{ color: '#C8A46A' }}>🥂</span>
-            <p className="text-xs sm:text-sm uppercase tracking-[0.3em]" style={secLabel}>The Reception</p>
-            <div className="w-10 h-px bg-gradient-to-r from-transparent via-[#C8A46A55] to-transparent" />
-            <p className="text-base sm:text-lg" style={secVenue}>At 10 22 Lipa</p>
-            <p className="text-xs sm:text-sm" style={secItalic}>Lipa-Alaminos Road, Brgy. Lumbang, Lipa City, Batangas</p>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="rounded-2xl px-8 sm:px-12 py-6 sm:py-8 bg-gradient-to-br from-[#EFD7D066] to-[#E6CDB566] border border-[#C8A46A33] shadow-sm flex flex-col items-center gap-2 text-center w-full"
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <p className="text-4xl sm:text-5xl" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#8a5a1e' }}>13</p>
-          <p className="text-sm sm:text-base uppercase tracking-[0.3em]" style={secLabel}>February 2027</p>
-          <p className="text-xs sm:text-sm" style={secItalic}>Every love story has its chapters.</p>
-          <p className="text-xs sm:text-sm uppercase tracking-[0.25em]" style={{ ...secBody, color: '#8a5a1e' }}>This is where our next era begins.</p>
+            Where our forever begins.
+          </p>
         </motion.div>
-
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-5 w-full">
-          {[chapel1, chapel2, chapel3].map((src, i) => (
-            <motion.div
-              key={i}
-              className="w-[30%] sm:w-[30%] aspect-[3/4] rounded-2xl overflow-hidden border border-[#C8A46A33] shadow-lg bg-white"
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
-              whileHover={{ scale: 1.04, y: -6 }}
-            >
-              <img src={src} alt="" className="w-full h-full object-cover" />
-            </motion.div>
-          ))}
-        </div>
-
       </div>
+
+      {/* Row 01 — Ceremony: Photo Left, Text Right */}
+      <div className="relative max-w-5xl mx-auto flex items-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-16 md:mb-20">
+        {/* Photo — Left */}
+        <motion.div
+          className="venue-photo-wrapper shrink-0 w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 aspect-square rounded-md overflow-hidden"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <img
+            src={chapel1}
+            alt="St. Therese of the Child Jesus and the Holy Face Parish Church"
+            className="venue-film-photo"
+            loading="lazy"
+          />
+        </motion.div>
+
+        {/* Text — Right */}
+        <motion.div
+          className="flex-1 flex flex-col items-start text-left"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.35 }}
+        >
+          <span
+            className="w-full text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-3 sm:mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#a67c34' }}
+          >
+            01 · The Ceremony
+          </span>
+          <div className="venue-divider mb-4 sm:mb-5" />
+          <h2
+            className="text-xl sm:text-2xl md:text-3xl leading-snug mb-3 sm:mb-4"
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, color: '#5a3e1b', letterSpacing: '0.01em' }}
+          >
+            St. Therese of the Child Jesus{' '}
+            <span className="block mt-0.5">&amp; the Holy Face Parish Church</span>
+          </h2>
+          <div className="flex flex-col gap-0.5">
+            <p
+              className="text-[11px] sm:text-xs"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#8a7a5e', letterSpacing: '0.03em' }}
+            >
+              Santo Tomas–Lipa Road
+            </p>
+            <p
+              className="text-[11px] sm:text-xs"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#8a7a5e', letterSpacing: '0.03em' }}
+            >
+              Talisay, Lipa City, Batangas
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Row 02 — Reception: Photo Left, Text Right */}
+      <div className="relative max-w-5xl mx-auto flex items-center gap-6 sm:gap-8 md:gap-12">
+        {/* Photo — Left */}
+        <motion.div
+          className="venue-photo-wrapper shrink-0 w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 aspect-square rounded-md overflow-hidden"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <img
+            src={reception}
+            alt="Reception venue"
+            className="venue-film-photo"
+            loading="lazy"
+          />
+        </motion.div>
+
+        {/* Text — Right */}
+        <motion.div
+          className="flex-1 flex flex-col items-start text-left"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.35 }}
+        >
+          <span
+            className="w-full text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-3 sm:mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: '#a67c34' }}
+          >
+            02 · The Reception
+          </span>
+          <div className="venue-divider mb-4 sm:mb-5" />
+          <h2
+            className="text-xl sm:text-2xl md:text-3xl leading-snug mb-3 sm:mb-4"
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500, color: '#5a3e1b', letterSpacing: '0.01em' }}
+          >
+            The Reception
+            <span className="block text-base sm:text-lg md:text-xl mt-0.5 font-normal" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#7a6a4e' }}>
+              Lumbang, Lipa City
+            </span>
+          </h2>
+          <div className="flex flex-col gap-0.5">
+            <p
+              className="text-[11px] sm:text-xs"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#8a7a5e', letterSpacing: '0.03em' }}
+            >
+              Lipa–Alaminos Road
+            </p>
+            <p
+              className="text-[11px] sm:text-xs"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: '#8a7a5e', letterSpacing: '0.03em' }}
+            >
+              Brgy. Lumbang, Lipa City, Batangas
+            </p>
+            <p
+              className="text-[11px] sm:text-xs italic mt-0.5"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, color: '#a09070', letterSpacing: '0.03em' }}
+            >
+              Lipa City, Batangas
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+
+function ErasParticles() {
+  const particles = useMemo(() =>
+    Array.from({ length: 60 }, (_, i) => {
+      const eraColors = [
+        'rgba(255,215,0,0.9)',
+        'rgba(255,182,193,0.8)',
+        'rgba(192,132,252,0.8)',
+        'rgba(236,72,153,0.7)',
+        'rgba(200,164,106,0.9)',
+        'rgba(255,255,255,0.8)',
+        'rgba(185,167,190,0.8)',
+        'rgba(239,215,208,0.85)',
+      ]
+      const color = eraColors[i % eraColors.length]
+      return {
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 5 + 2,
+        duration: Math.random() * 8 + 6,
+        delay: Math.random() * 6,
+        opacity: Math.random() * 0.6 + 0.4,
+        color,
+        drift: (Math.random() - 0.5) * 80,
+      }
+    }), [])
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+            background: `radial-gradient(circle, ${p.color}, transparent)`,
+            boxShadow: `0 0 ${p.size * 4}px ${p.color}, 0 0 ${p.size * 8}px ${p.color}`,
+          }}
+          animate={{
+            y: [0, -40, -80, -120, -160],
+            x: [0, p.drift * 0.3, p.drift * 0.6, p.drift * 0.8, p.drift],
+            opacity: [0, p.opacity, p.opacity, p.opacity * 0.4, 0],
+            scale: [0.3, 1.2, 1, 0.8, 0.2],
+          }}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            delay: p.delay,
+            ease: 'easeInOut',
+          }}
+        />
+      ))}
     </div>
   )
 }
@@ -415,30 +550,45 @@ function App() {
   }, [])
 
   return (
-    <div
-      className="min-h-dvh w-full relative overflow-hidden dreamy-bg"
-    >
+      <div className="min-h-dvh w-full relative z-10 overflow-hidden">
+      <div className="fixed inset-0 dreamy-bg" />
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <ErasParticles />
+      </div>
       <SparkleCanvas />
       <FloatingDecor />
       {showMain && (
         <>
           <MainHero />
           <CountdownSection />
-          <InfoSection />
+          <VenueSection />
         </>
       )}
 
-      {!showMain && (
+      {!showMain && introPage >= 0 && (
+        <div className="fixed inset-0 z-40">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${photoIntro})` }}
+          />
+          <div
+            className="absolute inset-0 page-glitter"
+            style={{
+              backgroundColor: INTRO_PAGES[Math.min(introPage, INTRO_PAGES.length - 1)].overlay,
+              transition: 'background-color 1s ease',
+            }}
+          />
+        </div>
+      )}
+
+      {!showMain && introPage >= 0 && (
         <AnimatePresence>
-          {introPage >= 0 && introPage < INTRO_PAGES.length && (
-            <IntroPage
-              key={introPage}
-              text={INTRO_PAGES[introPage].text}
-              overlay={INTRO_PAGES[introPage].overlay}
-              textColor={INTRO_PAGES[introPage].textColor}
-              onDone={handlePageDone}
-            />
-          )}
+          <IntroPage
+            key={introPage}
+            text={INTRO_PAGES[Math.min(introPage, INTRO_PAGES.length - 1)].text}
+            textColor={INTRO_PAGES[Math.min(introPage, INTRO_PAGES.length - 1)].textColor}
+            onDone={handlePageDone}
+          />
         </AnimatePresence>
       )}
 
