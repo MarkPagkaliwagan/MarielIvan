@@ -8,31 +8,15 @@ import chapel1 from './assets/chapel1.webp'
 import reception from './assets/reception.webp'
 
 
-const INTRO_PAGES = [
-  {
-    text: 'Every story has its beginning.',
-    overlay: 'rgba(252,228,236,0.72)',
-    textColor: '#ffffff',
-  },
-  {
-    text: 'Every chapter has its own kind of magic.',
-    overlay: 'rgba(232,234,246,0.78)',
-    textColor: '#ffffff',
-  },
-  {
-    text: 'Every era brought us closer to forever.',
-    overlay: 'rgba(243,229,245,0.75)',
-    textColor: '#ffffff',
-  },
-  {
-    text: 'Now, our next era begins.',
-    overlay: 'rgba(255,243,224,0.72)',
-    textColor: '#ffffff',
-  },
+const INTRO_LINES = [
+  'Every story has its beginning.',
+  'Every chapter has its own kind of magic.',
+  'Every era brought us closer to forever.',
+  'Now, our next era begins.',
 ]
 
 const TYPE_SPEED = 55
-const TRANSITION_DELAY = 300
+const LINE_DELAY = 600
 
 function SparkleCanvas() {
   const particles = useMemo(() =>
@@ -128,58 +112,94 @@ function FloatingDecor() {
   )
 }
 
-function IntroPage({ text, textColor, onDone }: { text: string; textColor: string; onDone: () => void }) {
+function IntroSequence({ onDone }: { onDone: () => void }) {
+  const [lineIdx, setLineIdx] = useState(0)
   const [displayed, setDisplayed] = useState('')
-  const [done, setDone] = useState(false)
+  const [phase, setPhase] = useState<'typing' | 'pause' | 'fadeOut' | 'fadeIn'>('fadeIn')
+  const [allDone, setAllDone] = useState(false)
 
   useEffect(() => {
-    setDisplayed('')
-    setDone(false)
-    let i = 0
-    const interval = setInterval(() => {
-      i++
-      setDisplayed(text.slice(0, i))
-      if (i >= text.length) {
-        clearInterval(interval)
-        setDone(true)
-      }
-    }, TYPE_SPEED)
-    return () => clearInterval(interval)
-  }, [text])
+    if (lineIdx >= INTRO_LINES.length) {
+      setAllDone(true)
+      return
+    }
+    const text = INTRO_LINES[lineIdx]
 
-  useEffect(() => {
-    if (done) {
-      const t = setTimeout(onDone, TRANSITION_DELAY)
+    if (phase === 'fadeIn') {
+      const t = setTimeout(() => setPhase('typing'), 400)
       return () => clearTimeout(t)
     }
-  }, [done, onDone])
+
+    if (phase === 'typing') {
+      if (displayed.length < text.length) {
+        const t = setTimeout(() => {
+          setDisplayed(text.slice(0, displayed.length + 1))
+        }, TYPE_SPEED)
+        return () => clearTimeout(t)
+      } else {
+        const t = setTimeout(() => setPhase('pause'), LINE_DELAY)
+        return () => clearTimeout(t)
+      }
+    }
+
+    if (phase === 'pause') {
+      const t = setTimeout(() => setPhase('fadeOut'), 400)
+      return () => clearTimeout(t)
+    }
+
+    if (phase === 'fadeOut') {
+      const t = setTimeout(() => {
+        setLineIdx((prev) => prev + 1)
+        setDisplayed('')
+        setPhase('fadeIn')
+      }, 500)
+      return () => clearTimeout(t)
+    }
+  }, [lineIdx, displayed, phase])
+
+  useEffect(() => {
+    if (allDone) {
+      const t = setTimeout(onDone, 800)
+      return () => clearTimeout(t)
+    }
+  }, [allDone, onDone])
+
+  const opacity = phase === 'fadeIn' ? 0 : phase === 'fadeOut' ? 0 : 1
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center pb-[25vh] p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="relative flex flex-col items-center gap-4 max-w-2xl text-center">
-        <motion.p
-          className="text-xl sm:text-4xl md:text-6xl text-center whitespace-normal sm:whitespace-nowrap"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontWeight: 600,
-            fontStyle: 'italic',
-            color: textColor,
-            letterSpacing: '0.02em',
-            textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3)',
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          {displayed}
-          <span className="typewriter-cursor" style={{ backgroundColor: textColor }} />
-        </motion.p>
+      <div className="relative flex flex-col items-center max-w-3xl text-center">
+        <AnimatePresence mode="wait">
+          {!allDone && (
+            <motion.p
+              key={lineIdx}
+              className="text-xl sm:text-4xl md:text-6xl text-center whitespace-normal sm:whitespace-nowrap"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                fontStyle: 'italic',
+                color: '#ffffff',
+                letterSpacing: '0.02em',
+                textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3)',
+              }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+            >
+              {displayed}
+              {phase === 'typing' && (
+                <span className="typewriter-cursor" style={{ backgroundColor: '#ffffff' }} />
+              )}
+            </motion.p>
+          )}
+        </AnimatePresence>
       </div>
     </motion.div>
   )
@@ -529,22 +549,16 @@ function ErasParticles() {
 
 function App() {
   const [envelopeClicked, setEnvelopeClicked] = useState(false)
-  const [introPage, setIntroPage] = useState(-1)
+  const [showIntro, setShowIntro] = useState(false)
   const [showMain, setShowMain] = useState(false)
 
   const handleEnvelopeClick = () => {
     setEnvelopeClicked(true)
-    setTimeout(() => setIntroPage(0), 700)
+    setTimeout(() => setShowIntro(true), 700)
   }
 
-  const handlePageDone = useCallback(() => {
-    setIntroPage((prev) => {
-      if (prev >= INTRO_PAGES.length - 1) {
-        setShowMain(true)
-        return prev
-      }
-      return prev + 1
-    })
+  const handleIntroDone = useCallback(() => {
+    setShowMain(true)
   }, [])
 
   return (
@@ -563,7 +577,7 @@ function App() {
         </>
       )}
 
-      {!showMain && introPage >= 0 && (
+      {!showMain && showIntro && (
         <div className="fixed inset-0 z-40">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -573,18 +587,13 @@ function App() {
         </div>
       )}
 
-      {!showMain && introPage >= 0 && (
+      {!showMain && showIntro && (
         <AnimatePresence>
-          <IntroPage
-            key={introPage}
-            text={INTRO_PAGES[Math.min(introPage, INTRO_PAGES.length - 1)].text}
-            textColor={INTRO_PAGES[Math.min(introPage, INTRO_PAGES.length - 1)].textColor}
-            onDone={handlePageDone}
-          />
+          <IntroSequence onDone={handleIntroDone} />
         </AnimatePresence>
       )}
 
-      {!showMain && introPage < 0 && (
+      {!showMain && !showIntro && (
         <div
           className={`min-h-dvh w-full flex items-center justify-center p-4 transition-opacity duration-700 ${envelopeClicked ? 'opacity-0' : 'opacity-100'}`}
           style={{
