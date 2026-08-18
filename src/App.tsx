@@ -112,7 +112,7 @@ function FloatingDecor() {
   )
 }
 
-function IntroSequence({ onDone }: { onDone: () => void }) {
+function IntroSequence({ onDone, fading }: { onDone: () => void; fading: boolean }) {
   const [lineIdx, setLineIdx] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [phase, setPhase] = useState<'typing' | 'pause' | 'fadeOut' | 'fadeIn'>('fadeIn')
@@ -170,7 +170,7 @@ function IntroSequence({ onDone }: { onDone: () => void }) {
     <motion.div
       className="fixed inset-0 z-50 flex items-end justify-center pb-[25vh] p-6"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: fading ? 0 : 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
@@ -551,6 +551,7 @@ function App() {
   const [envelopeClicked, setEnvelopeClicked] = useState(false)
   const [showIntro, setShowIntro] = useState(false)
   const [showMain, setShowMain] = useState(false)
+  const [introFading, setIntroFading] = useState(false)
 
   const handleEnvelopeClick = () => {
     setEnvelopeClicked(true)
@@ -558,15 +559,23 @@ function App() {
   }
 
   const handleIntroDone = useCallback(() => {
-    setShowMain(true)
+    setIntroFading(true)
+    setTimeout(() => {
+      setShowMain(true)
+      setTimeout(() => setShowIntro(false), 800)
+    }, 500)
   }, [])
 
   return (
       <div className="min-h-dvh w-full relative z-10 overflow-hidden">
-      <div className="fixed inset-0 dreamy-bg" />
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <ErasParticles />
-      </div>
+      {showMain && (
+        <>
+          <div className="fixed inset-0 dreamy-bg" />
+          <div className="fixed inset-0 z-0 pointer-events-none">
+            <ErasParticles />
+          </div>
+        </>
+      )}
       <SparkleCanvas />
       <FloatingDecor />
       {showMain && (
@@ -577,8 +586,11 @@ function App() {
         </>
       )}
 
-      {!showMain && showIntro && (
-        <div className="fixed inset-0 z-40">
+      {showIntro && (
+        <div
+          className="fixed inset-0 z-40 transition-opacity duration-700"
+          style={{ opacity: introFading ? 0 : 1 }}
+        >
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${photoIntro})` }}
@@ -589,7 +601,7 @@ function App() {
 
       {!showMain && showIntro && (
         <AnimatePresence>
-          <IntroSequence onDone={handleIntroDone} />
+          <IntroSequence onDone={handleIntroDone} fading={introFading} />
         </AnimatePresence>
       )}
 
