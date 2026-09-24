@@ -27,7 +27,7 @@ function InvitationHero() {
   };
 
   return (
-    <section className="relative flex min-h-dvh w-full flex-col justify-center overflow-hidden">
+    <section className="relative w-full overflow-hidden flex flex-col">
       <div className="venue-grain-overlay" />
 
       <motion.div
