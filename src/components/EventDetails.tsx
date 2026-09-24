@@ -9,11 +9,6 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 function PhotoCard({ src, alt }: { src?: string; alt?: string }) {
   return (
     <div className="relative aspect-square w-full overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-3 z-10 border border-[#B59A63]/40"
-      />
-
       {src ? (
         <img
           src={src}
@@ -120,7 +115,7 @@ function EventDetails() {
                   textWrap: "balance",
                 }}
               >
-                Sto. Tomas–Lipa Rd, Brgy. Alisay, Lipa City, Batangas
+                Sto. Tomas Lipa Rd, Brgy. Alisay, Lipa City, Batangas
               </p>
             </div>
 
@@ -137,7 +132,7 @@ function EventDetails() {
 
             <div className="flex flex-col items-start text-left order-1 md:order-2 md:justify-self-start">
               <p className={labelClass} style={labelStyle}>
-                Reception to follow
+                The Reception
               </p>
 
               <p
@@ -162,7 +157,7 @@ function EventDetails() {
                   textWrap: "balance",
                 }}
               >
-                Lipa–Alaminos Road, Brgy. Lumbang, Lipa City, Batangas
+                Lipa Alaminos Road, Brgy. Lumbang, Lipa City, Batangas
               </p>
             </div>
           </motion.div>
