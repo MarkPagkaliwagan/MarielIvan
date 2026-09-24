@@ -94,7 +94,7 @@ function WeddingCalendar() {
       >
         <motion.div
           variants={reveal}
-          className="w-full max-w-[400px] py-2 md:justify-self-end"
+          className="w-full max-w-100 py-2 md:justify-self-end"
         >
           <h3
             className="text-center text-[clamp(0.95rem,3.2vw,1.4rem)] uppercase tracking-[0.14em] sm:tracking-[0.22em]"
@@ -118,7 +118,7 @@ function WeddingCalendar() {
             {WEEKDAY_LABELS.map((label, i) => (
               <span
                 key={`${label}-${i}`}
-                className="flex h-6 w-5 items-center justify-center text-[8px] uppercase tracking-[0.1em] sm:w-8 sm:text-[9px]"
+                className="flex h-6 w-5 items-center justify-center text-[8px] uppercase tracking-widest sm:w-8 sm:text-[9px]"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 600,
@@ -186,11 +186,11 @@ function WeddingCalendar() {
 
         <motion.div
           variants={reveal}
-          className="relative h-64 w-full overflow-hidden sm:h-80 md:h-[440px]"
+          className="relative h-64 w-full overflow-hidden sm:h-80 md:h-110"
         >
           <div
             aria-hidden="true"
-            className="animate-[none] pointer-events-none absolute inset-3 z-10 border border-[#B59A63]/40"
+            className="animate-none pointer-events-none absolute inset-3 z-10 border border-[#B59A63]/40"
           />
 
           <motion.img
@@ -209,7 +209,7 @@ function WeddingCalendar() {
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#F4ECDC]/70 via-transparent to-transparent"
+            className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#F4ECDC]/70 via-transparent to-transparent"
           />
         </motion.div>
       </motion.div>
