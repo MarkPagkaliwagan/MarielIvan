@@ -1,1019 +1,533 @@
-# Wedding Invitation Design System
+# Wedding Website — Eras-Inspired Visual Direction
 
-## 1. Design Intent
+## The main idea
 
-Create a premium digital wedding invitation that feels:
+This should feel like a beautiful wedding invitation that happens to live on the web.
 
-- Romantic
-- Nostalgic
-- Dreamy
-- Elegant
-- Personal
-- Story-driven
-- Slightly whimsical
-- Mobile-first
+The visual reference is the **Taylor Swift Eras Tour mood**: different chapters, changing moods, dramatic photography, nostalgic details, rich colors, and a little bit of stage-like elegance.
 
-The experience should feel like opening a personal love story rather than browsing a normal website.
+Do **not** make it look like an official Taylor Swift page, album page, or concert ticket. Take the feeling of the eras concept, then translate it into a wedding design with its own identity.
 
-The visual direction may take inspiration from the **romantic, lyrical, nostalgic feeling associated with Taylor Swift's different eras**, but the design must remain original.
-
-Do not directly reproduce album covers, official logos, copyrighted artwork, exact typography, or recognizable branded layouts.
-
-The goal is:
-
-> **"A love story told through an elegant interactive invitation."**
+The result should feel romantic, cinematic, feminine, vintage, and expensive without becoming too decorative.
 
 ---
 
-# 2. Overall Visual Direction
+## 1. What the page should feel like
 
-Use a combination of:
+Think:
 
-- Editorial wedding invitation design
-- Vintage paper textures
-- Soft romantic photography
-- Subtle scrapbook elements
-- Elegant typography
-- Film-grain details
-- Handwritten accents
-- Delicate borders
-- Soft shadows
-- Layered paper/card compositions
+- a luxury wedding invitation
+- an old photo album
+- a fashion editorial
+- a love story told in chapters
+- soft concert-light atmosphere
+- vintage film photography
+- burgundy velvet and antique gold
 
-Avoid making the website look like a typical SaaS landing page.
+The page should have a little drama, but it should still breathe.
 
-Do NOT use:
-
-- Dashboard layouts
-- Generic glassmorphism
-- Excessive gradients
-- Neon effects
-- Huge glowing buttons
-- Generic AI-generated hero sections
-- Overly rounded UI everywhere
-- Excessive floating cards
-- Stock-template wedding website layouts
-
-The page should feel intentionally designed rather than assembled from UI components.
+The couple's photos, names, and wedding date should always be more important than the decoration.
 
 ---
 
-# 3. Color System
+## 2. Eras-inspired direction
 
-Use a warm romantic palette.
+Use the idea of **eras as chapters** rather than putting obvious Taylor references everywhere.
 
-### Primary
+Each major section can have a slightly different mood while keeping the same overall palette and typography.
 
-Warm Ivory
-`#F7F1E7`
+### Mood references
 
-Paper Cream
-`#EFE4D2`
+**Romantic / Lover-like mood**
 
-Soft Champagne
-`#D8C3A5`
+- warm ivory
+- muted rose
+- soft blush
+- delicate light
+- dreamy photography
 
-### Secondary
+**Vintage / Red-like mood**
 
-Dusty Rose
-`#B98F8F`
+- burgundy
+- wine
+- dark mauve
+- film grain
+- stronger contrast
 
-Muted Mauve
-`#8E7077`
+**Elegant / Speak Now-like mood**
 
-Vintage Burgundy
-`#6D343D`
+- mauve
+- dusty lavender notes
+- soft gold
+- dramatic serif typography
+- candlelit feeling
 
-### Dark
+**Midnight-like mood**
 
-Ink
-`#211E1C`
+- deep plum
+- almost-black burgundy
+- subtle stars
+- dark cinematic photography
 
-Soft Charcoal
-`#393432`
-
-### Accent
-
-Antique Gold
-`#B59A63`
-
-Use gold sparingly.
-
-Gold should appear mainly in:
-
-- Fine borders
-- Small ornaments
-- Icons
-- Dividers
-- Important numbers
-
-Do not turn the entire interface gold.
+These are mood references only. Do not copy album covers, logos, fonts, graphics, or recognizable tour artwork.
 
 ---
 
-# 4. Typography
+## 3. Color palette
 
-Typography should feel like a luxury wedding invitation.
+Keep the colors mature and slightly muted.
 
-Use two complementary type categories:
+```text
+Burgundy       #6D343D
+Deep Mauve     #755961
+Antique Gold   #8A6A2F
+Warm Ivory     #F8F3EA
+Champagne      #E8DCCB
+Dusty Rose     #B8959B
+Deep Ink       #211B1D
+Soft Gray      #8C8582
+White          #FFFFFF
+```
 
-### Display Typeface
+### How to use them
 
-Elegant serif.
+**Burgundy** should be the strongest identity color.
 
-Use for:
+Use it for:
 
-- Couple names
-- Section headings
-- Important dates
-- Short poetic phrases
+- important text
+- buttons
+- small accents
+- decorative lines
+- active states
 
-Preferred characteristics:
+**Mauve** is for secondary details and softer text.
 
-- High contrast serif
-- Editorial
-- Sophisticated
-- Romantic
+**Antique gold** should be rare. A little looks elegant; too much makes the page look like a wedding template.
 
-Examples:
+**Warm ivory** should be the main light background instead of pure white.
+
+---
+
+## 4. Typography
+
+Typography should do most of the decorative work.
+
+Use one elegant serif and one clean sans-serif.
+
+### Serif
+
+Good choices:
 
 - Cormorant Garamond
 - Playfair Display
-- Libre Baskerville
 - DM Serif Display
+- Libre Baskerville
 
-### Supporting Typeface
+Use the serif for:
 
-Clean modern serif or sans-serif.
+- couple names
+- section titles
+- dates
+- short romantic lines
 
-Use for:
+### Sans-serif
 
-- Body text
-- Event details
-- Navigation
-- Buttons
-- RSVP form
-
-Examples:
+Good choices:
 
 - Inter
+- Geist
+- IBM Plex Sans
 - Manrope
-- DM Sans
-- Lora
 
-### Handwritten Accent
+Use the sans-serif for:
 
-Use very sparingly.
+- body copy
+- navigation
+- labels
+- buttons
+- small information
 
-Only for:
-
-- Short notes
-- "Save the date"
-- Tiny annotations
-- Personal handwritten-style phrases
-
-Never use handwritten fonts for large paragraphs.
-
-Typography should create hierarchy through size, weight, spacing, and composition instead of excessive font variations.
+Do not use lots of different fonts. The contrast between the serif and sans-serif is enough.
 
 ---
 
-# 5. Hero / Opening Experience
+## 5. Backgrounds
 
-The opening screen should feel like the first page of a wedding storybook.
+The background should carry the **eras atmosphere** without taking over the page.
 
-Possible composition:
+A good background can have:
 
-Small label:
+- warm ivory paper texture
+- faint film grain
+- soft burgundy shadows
+- blurred flowers
+- fabric-like texture
+- subtle champagne highlights
+- very soft light leaks
+- faded photographic layers
+- barely visible star-like dust
 
-`THE BEGINNING OF FOREVER`
+The center area should stay calm enough for text.
 
-Large couple names:
+Decorative details should mostly live around the edges.
 
-`[BRIDE] & [GROOM]`
+### Important rule
 
-Date:
+**No readable text inside the generated background.**
 
-`[MONTH] [DAY], [YEAR]`
+Do not generate:
 
-Small location:
+- names
+- dates
+- fake quotes
+- logos
+- tour titles
+- album names
+- letters that look like branding
 
-`[VENUE] · [CITY]`
-
-Background:
-
-- Soft wedding photograph
-- Ivory paper texture
-- Subtle film grain
-- Small decorative elements
-
-Add a gentle entrance animation.
-
-Avoid:
-
-- Giant animated text
-- Excessive parallax
-- Flashy particle effects
-- Neon glow
-
-The hero should feel quiet and cinematic.
+Put the real text in the website itself.
 
 ---
 
-# 6. Opening Interaction
+## 6. Photography
 
-The invitation may begin with an envelope or letter-style interaction.
+Photography is the strongest visual element on the site.
 
-Example:
-
-A centered envelope appears.
-
-Text:
-
-`You are invited`
-
-User taps:
-
-`OPEN INVITATION`
-
-The envelope gently opens.
-
-The invitation content is revealed underneath.
-
-Animation should be:
-
-- Slow
-- Smooth
-- Elegant
-- Lightweight
-
-Do not force the user through a long animation.
-
-Provide a visible skip/open option.
-
----
-
-# 7. Navigation
-
-Keep navigation minimal.
-
-Recommended:
-
-`OUR STORY`
-`WEDDING`
-`DETAILS`
-`RSVP`
-
-For mobile:
-
-Use a simple menu or compact floating navigation.
-
-Navigation should never dominate the design.
-
-A small fixed music control may appear separately.
-
----
-
-# 8. Our Story Section
-
-This section should tell the couple's story in a timeline.
-
-Example:
-
-### 2019
-
-`The first hello.`
-
-Short story.
-
-### 2021
-
-`Somewhere along the way, it became us.`
-
-Short story.
-
-### 2024
-
-`The question.`
-
-Short story.
-
-### 2026
-
-`Forever begins here.`
-
-Short story.
-
-Use a vertical timeline on mobile.
-
-Desktop can use an editorial horizontal or asymmetric layout.
-
-Each milestone may contain:
-
-- Date
-- Small photo
-- Short paragraph
-- Decorative number
-- Tiny handwritten note
-
-Do not make every milestone look like the same card.
-
----
-
-# 9. Photography
-
-Photography is an important part of the experience.
+Treat the couple's photos like editorial photography, not ordinary website images.
 
 Use:
 
-- Film-inspired photos
-- Candid couple photos
-- Detail shots
-- Venue photos
-- Black-and-white portraits
-- Warm-toned images
+- large crops
+- natural skin tones
+- soft highlights
+- slightly muted saturation
+- subtle film texture
+- gentle vignette
+- slow image reveals
 
-Image treatment may include:
+Avoid over-editing faces or making everything overly blurred.
 
-- Soft grain
-- Slight faded contrast
-- Subtle paper framing
-- Polaroid-inspired framing
-- Cropped editorial layouts
+A photo can fade into the background at the bottom rather than ending inside a hard rectangular box.
+
+---
+
+## 7. Hero section
+
+The hero should immediately feel like the cover of a wedding invitation.
+
+A simple structure is enough:
+
+```text
+small wedding label
+
+THE COUPLE'S NAMES
+
+short romantic line
+
+WEDDING DATE
+
+small scroll cue
+
+large couple photograph / atmospheric background
+```
+
+The photo should do most of the visual work.
+
+Keep navigation very quiet so the first screen does not turn into a normal website header.
+
+Avoid putting lots of buttons in the hero.
+
+---
+
+## 8. Countdown
+
+The countdown is one of the few places where cards make sense.
+
+Keep it simple:
+
+```text
+DAYS    HOURS    MINUTES    SECONDS
+ 00       00        00         00
+```
+
+Each unit can sit inside a **very subtle translucent glass panel**.
+
+The effect should look like frosted invitation paper, not futuristic glassmorphism.
+
+### Glass treatment
+
+```css
+background: rgba(255, 255, 255, 0.12);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+border: 1px solid rgba(255, 255, 255, 0.22);
+box-shadow: 0 10px 30px rgba(33, 27, 29, 0.08);
+```
+
+Use a small radius. Avoid pill shapes.
+
+On mobile, keep all four countdown units compact and readable rather than stacking huge cards.
+
+---
+
+## 9. Cards
+
+This is **not** a card-heavy website.
+
+Avoid turning every section into a floating box.
+
+Use a card only when it actually helps the content, such as:
+
+- countdown
+- RSVP
+- venue information
+- event details
+
+Most other sections should use open layouts, photography, typography, and dividers.
+
+### Card shape
+
+Keep the corners close to square.
 
 Avoid:
 
-- Excessive filters
-- Heavy blur
-- Artificial AI-looking imagery
-- Oversaturated colors
-
-Photos should feel authentic and personal.
-
----
-
-# 10. Gallery
-
-Create an editorial photo gallery rather than a standard grid.
-
-Possible arrangement:
-
-- Large feature photograph
-- Two smaller photographs
-- One vertical portrait
-- One handwritten caption
-- One intentionally empty space
-
-Allow uneven image sizes.
-
-Example captions:
-
-`A quiet afternoon.`
-
-`The beginning of everything.`
-
-`Somewhere between then and forever.`
-
-Captions should remain original and personal.
-
-Do not fill every image with text.
+- giant rounded containers
+- excessive padding
+- pill UI
+- dashboard-style cards
+- floating white boxes everywhere
 
 ---
 
-# 11. Wedding Details
+## 10. Sections as eras
 
-Present event information clearly.
+A nice way to use the eras concept is to let the website unfold like a story.
 
-### Ceremony
+### Chapter 01 — The Beginning
 
-`[TIME]`
+A short introduction to the couple.
 
-`[VENUE]`
+### Chapter 02 — The Memories
 
-`[ADDRESS]`
+Photography-heavy section. Let the images carry the emotion.
 
-### Reception
+### Chapter 03 — The Day
 
-`[TIME]`
+Wedding date, ceremony, reception, and important times.
 
-`[VENUE]`
+### Chapter 04 — The Details
 
-`[ADDRESS]`
+Venue, dress code, RSVP, notes, and practical information.
 
-Include:
+### Chapter 05 — Forever
 
-- Date
-- Time
-- Venue
-- Address
-- Dress code
-- Map button
-- Reception details
+A final message and closing photograph.
 
-Important information must remain easy to scan.
-
-Romantic styling should never reduce readability.
+The chapter labels should stay small. The concept is there, but it should never feel forced.
 
 ---
 
-# 12. Countdown
+## 11. Decorative details
 
-Create a simple countdown to the wedding.
+The current direction is **minimalist**. Decoration is used only to structure the layout, never to fill it.
 
-Example:
+Good decoration:
 
-`THE DAY WE SAY I DO`
+- thin antique-gold lines
+- delicate botanical line art
+- small ornamental separators
+- faded film scratches
+- subtle grain
+- soft edge glows
 
-`120`
+Bad decoration:
 
-Days
+- diamond ornaments, star glyphs, or sparkle marks that do not mark a real date or state
+- random floating emojis
+- unrelated icon sets
+- giant stars
+- random crowns
+- generic hearts everywhere
+- neon effects
+- excessive sparkle animations
 
-`08`
+### Ornament rule
 
-Hours
+**No diamond or star glyphs as decoration.** If a divider needs a break, use a plain line or a simple middot (·). A star/diamond may appear only when it marks something real, like the highlighted wedding day on a calendar.
 
-`32`
+### Icon rule
 
-Minutes
+**Only use an icon when it communicates something specific.**
 
-`14`
+Examples that make sense:
 
-Seconds
+- calendar for date
+- clock for time
+- map pin for venue
+- mail or envelope for RSVP
 
-Use typography rather than large UI cards.
+Do not add icons just to make a section look fuller.
 
-The countdown should feel like part of the invitation design.
-
----
-
-# 13. Dress Code
-
-Present the dress code visually.
-
-Example:
-
-`DRESS CODE`
-
-`Formal Attire`
-
-Optional color guidance can be shown through small color swatches.
-
-Use a refined layout rather than a generic informational card.
-
----
-
-# 14. RSVP Section
-
-RSVP should be one of the clearest sections.
-
-Heading:
-
-`WILL YOU JOIN US?`
-
-Supporting text:
-
-`We would love to celebrate this chapter with you.`
-
-Fields:
-
-- Full Name
-- Number of Guests
-- Attendance
-- Meal Preference
-- Message
-
-Buttons:
-
-`YES, I'LL BE THERE`
-
-`SORRY, I CAN'T MAKE IT`
-
-Keep the form simple.
-
-The RSVP interaction should feel like a personal invitation rather than a business form.
+Icons must come from one consistent icon set, such as Lucide, and should be small and understated.
 
 ---
 
-# 15. Music Experience
+## 12. Buttons
 
-Optional background music may be included.
+Buttons should resemble invitation stationery.
 
-Default behavior should prioritize user control.
+### Primary
 
-Include a small elegant music control:
+- burgundy background
+- ivory text
+- subtle shadow
+- small radius
 
-`♫`
+### Secondary
 
-or
+- transparent background
+- thin burgundy or gold border
+- burgundy text
 
-`SOUND ON`
+Keep the wording natural.
 
-Music should never autoplay aggressively without a clear user interaction where browser behavior requires it.
-
-Possible interaction:
-
-After opening the invitation:
-
-`Would you like to hear our song?`
-
-Buttons:
-
-`YES`
-
-`NOT NOW`
-
-The audio control should remember the user's preference during the session.
+Avoid CTA copy that sounds like a SaaS website.
 
 ---
 
-# 16. Decorative Language
+## 13. Animation
 
-Use small literary phrases throughout the website.
+The animation style should feel like a music video or wedding film: slow, smooth, and intentional.
 
-Examples of original wording:
+Use mostly:
 
-`For all the chapters we've lived, and all the ones still waiting for us.`
-
-`One day became our forever.`
-
-`A new chapter begins.`
-
-`Come celebrate the story with us.`
-
-Keep these phrases short.
-
-Do not use direct Taylor Swift lyrics.
-
-Do not reproduce song lyrics.
-
-Do not imitate specific lyrics closely.
-
-The inspiration should come from the emotional atmosphere, not copied text.
-
----
-
-# 17. Eras-Inspired Visual References
-
-The invitation can subtly acknowledge different romantic moods without copying any specific Taylor era.
-
-Possible visual moods:
-
-### Dreamy
-
-Soft blue, faded photographs, stars, delicate typography.
-
-### Vintage
-
-Cream paper, serif typography, film grain, muted colors.
-
-### Romantic
-
-Dusty rose, burgundy, candlelight, floral details.
-
-### Storybook
-
-Paper texture, handwritten notes, pressed-flower elements.
-
-### Modern Love
-
-Minimal layouts, clean typography, monochrome photography.
-
-These references should influence mood rather than directly recreate a specific album's identity.
-
----
-
-# 18. Background Treatment
-
-Use layered backgrounds.
-
-Possible layers:
-
-1. Base ivory color
-2. Very subtle paper texture
-3. Soft photographic elements
-4. Decorative line drawings
-5. Fine grain
-6. Occasional botanical or floral details
-
-Textures should be subtle.
-
-Never make the background so noisy that text becomes difficult to read.
-
----
-
-# 19. Borders and Frames
-
-Use thin decorative borders for important sections.
-
-Preferred:
-
-- 1px lines
-- Double-line frames
-- Small corner ornaments
-- Fine botanical details
-
-Avoid thick outlines.
-
-Avoid excessive rounded cards.
-
-Not every section needs a visible container.
-
----
-
-# 20. Buttons
-
-Buttons should feel like part of the invitation.
-
-Example:
-
-`OPEN INVITATION`
-
-`VIEW LOCATION`
-
-`RSVP`
-
-Style:
-
-- Thin border
-- Minimal radius or subtle radius
-- Elegant typography
-- Generous horizontal padding
-- Smooth hover transition
+- fade in
+- fade up
+- gentle image scale
+- soft opacity transitions
+- staggered text reveals
 
 Avoid:
 
-- Giant pill buttons
-- Bright gradients
-- Excessive shadows
-- Huge uppercase text
-
----
-
-# 21. Motion Design
-
-Animation should support storytelling.
-
-Use:
-
-- Fade-ins
-- Gentle vertical movement
-- Slow image reveals
-- Text stagger animations
-- Envelope opening
-- Subtle image scale
-- Page transitions
-
-Recommended animation feeling:
-
-`slow + graceful + cinematic`
-
-Avoid:
-
-- Bounce animations
-- Excessive spring effects
-- Spinning elements
-- Constant floating objects
-- Heavy scroll-jacking
-- Too many simultaneous animations
+- bouncing elements
+- spinning icons
+- aggressive parallax
+- flashy gradients
+- exaggerated 3D movement
+- animations on everything
 
 Respect `prefers-reduced-motion`.
 
 ---
 
-# 22. Scroll Experience
+## 14. Responsive behavior
 
-Scrolling should feel like moving through chapters.
+The mobile version should not simply be a squeezed desktop version.
 
-Possible section rhythm:
+On mobile:
 
-`COVER`
+- make the names slightly smaller
+- reduce gaps before reducing readability
+- keep the countdown in one compact row when possible
+- let photos crop intentionally
+- preserve clear text zones
+- keep the visual hierarchy simple
 
-↓
+On desktop:
 
-`THE STORY`
-
-↓
-
-`THE MOMENT`
-
-↓
-
-`THE WEDDING`
-
-↓
-
-`THE DETAILS`
-
-↓
-
-`THE PEOPLE WE LOVE`
-
-↓
-
-`RSVP`
-
-↓
-
-`FOREVER`
-
-Use whitespace between sections.
-
-Do not cram everything into one continuous wall of content.
+- use the full width of the screen
+- allow photography to breathe
+- use wider compositions
+- give the hero enough height to feel cinematic
 
 ---
 
-# 23. Mobile-First Design
-
-Mobile is the primary experience.
-
-The invitation should work beautifully on:
-
-- iPhone
-- Android phones
-- Small screens
-- Large phones
-- Desktop
-
-Priorities:
-
-- Large readable typography
-- Comfortable touch targets
-- Fast loading images
-- Simple navigation
-- No horizontal scrolling
-- RSVP fields easy to use
-- Important information visible without excessive scrolling
-
-Avoid desktop-first layouts that become cramped on mobile.
-
----
-
-# 24. Responsive Layout
-
-### Mobile
-
-Single-column layouts.
-
-Large centered couple names.
-
-Stack:
-
-Photo
-Story
-Details
-RSVP
-
-### Tablet
-
-Use wider editorial layouts.
-
-Allow two-column sections where appropriate.
-
-### Desktop
-
-Introduce asymmetric layouts.
-
-Use:
-
-- Large photography
-- Split layouts
-- Overlapping image compositions
-- Editorial typography
-- Decorative whitespace
-
-Desktop should feel like a premium invitation website rather than an enlarged mobile page.
-
----
-
-# 25. Accessibility
-
-Maintain strong readability.
-
-Requirements:
-
-- Sufficient text contrast
-- Keyboard navigation
-- Visible focus states
-- Accessible form labels
-- Alt text for meaningful images
-- Reduced-motion support
-- Buttons large enough for touch interaction
-- No information communicated only through color
-
-Decorative elements should not interfere with navigation.
-
----
-
-# 26. Performance
-
-The invitation should load quickly.
-
-Prioritize:
-
-- Optimized images
-- Lazy loading
-- Compressed assets
-- Minimal unnecessary dependencies
-- Lightweight animations
-- Efficient fonts
-
-Do not sacrifice performance for decorative effects.
-
-The wedding invitation should still feel smooth on mobile data.
-
----
-
-# 27. Micro-Details
-
-Use small details to make the site feel personal.
-
-Examples:
-
-- Date stamped like an old letter
-- Small page numbers
-- Tiny floral illustrations
-- Film-frame borders
-- Handwritten annotations
-- Subtle paper folds
-- Small stars
-- Vintage postage-inspired decoration
-- Initials
-- Wedding monogram
-
-These details should reward attention.
-
-Do not add decorative elements simply because there is empty space.
-
-Every decorative element should have a visual purpose.
-
----
-
-# 28. Footer / Ending
-
-The final section should feel like the closing page of the story.
-
-Example:
-
-`AND THEY CHOSE EACH OTHER, EVERY DAY.`
-
-Then:
-
-`[BRIDE] & [GROOM]`
-
-`[WEDDING DATE]`
-
-Optional:
-
-`Thank you for being part of our story.`
-
-Keep the ending quiet and emotional.
-
-Avoid a generic:
-
-`© 2026 All Rights Reserved`
-
-as the primary ending.
-
-A small technical footer can still exist below it.
-
----
-
-# 29. Content Rules
-
-All copy should feel:
-
-- Human
-- Warm
-- Personal
-- Specific
-- Concise
-
-Prefer:
-
-`We first met at...`
-
-over:
-
-`Our beautiful journey began...`
-
-Prefer real memories and details over generic romantic statements.
-
-Avoid common AI phrases such as:
-
-- "A celebration of love"
-- "Embark on a journey"
-- "Where dreams come true"
-- "Cherished memories"
-- "Timeless elegance"
-- "A magical moment"
-
-unless they genuinely fit the couple's voice.
-
----
-
-# 30. Anti-Slop Rules
-
-The design must not feel like a generic AI-generated wedding website.
-
-Before considering a section finished, check:
-
-### Composition
-
-Is the layout intentionally composed?
-
-### Typography
-
-Does the typography have clear hierarchy?
-
-### Personality
-
-Could another wedding website use the exact same design?
-
-### Authenticity
-
-Does this feel connected to the couple?
-
-### Restraint
-
-Was anything added just because the page felt empty?
-
-### Interaction
-
-Does animation improve the experience?
-
-### Mobile
-
-Does the design still look intentional on a phone?
-
----
-
-# 31. Technical Design Principles
-
-Use a component-based architecture.
-
-Separate:
-
-- Layout
-- Content
-- Animation
-- Decorative elements
-- Forms
-- Data
-- Media
-
-Wedding information should be easy to update without modifying layout code.
-
-Recommended data structure:
-
-```ts
-const wedding = {
-  couple: {
-    bride: "[Bride Name]",
-    groom: "[Groom Name]",
-  },
-
-  date: "[Wedding Date]",
-
-  ceremony: {
-    time: "[Time]",
-    venue: "[Venue]",
-    address: "[Address]",
-  },
-
-  reception: {
-    time: "[Time]",
-    venue: "[Venue]",
-    address: "[Address]",
-  },
-
-  dressCode: "[Dress Code]",
-
-  story: [],
-
-  gallery: [],
-
-  rsvp: {
-    enabled: true,
-  },
-};
+## 15. Layout and spacing
+
+Do not make every section extremely tall.
+
+Use enough space to separate chapters, but keep the page moving like a story.
+
+A useful base scale:
+
+```text
+4px
+8px
+16px
+24px
+32px
+48px
+64px
+96px
 ```
 
+Use the larger values mainly for transitions between major sections.
+
 ---
 
-# 32. Final Design Goal
+## 16. What to avoid completely
 
-The final experience should feel like:
+These are the things that will make the design look obviously AI-generated or like a generic template:
 
-**a beautifully designed personal love letter that happens to be a website.**
+- random icons with no purpose
+- too many cards
+- excessive glass effects
+- generic purple gradients
+- glowing text
+- huge rounded corners
+- random floating decorations
+- too many font families
+- excessive emojis
+- unrelated illustrations
+- fake luxury words everywhere
+- overly poetic filler copy
+- decorative elements behind important text
 
-It should be romantic without becoming overly decorative.
+The page should feel **designed**, not filled.
 
-It should be inspired without becoming derivative.
+---
 
-It should be interactive without becoming gimmicky.
+## 17. AI / coding direction
 
-It should feel premium without becoming complicated.
+When changing the existing code, make the smallest useful change.
 
-Most importantly:
+Preserve:
 
-**the couple should feel like the website belongs to their story.**
+- current functionality
+- routes
+- data flow
+- existing assets
+- existing components where practical
+
+Do not rewrite working code just to change the appearance.
+
+Keep the UI custom and simple instead of adding libraries for decorative effects that could be done with CSS.
+
+### Most important rule
+
+Before adding a visual element, ask:
+
+> Does this belong to the wedding story?
+
+If the answer is no, leave it out.
+
+---
+
+## 18. Background generation prompt
+
+Use this as a visual reference when generating an original background:
+
+> Elegant cinematic wedding invitation background with an eras-inspired concert atmosphere, romantic vintage editorial photography mood, deep burgundy wine, muted mauve, warm ivory and antique champagne gold, layered soft photographic textures, subtle film grain, delicate botanical silhouettes, velvet-like shadows, faint warm stage lighting, dreamy archival photography feeling, sophisticated fashion editorial composition, nostalgic but modern, subtle star dust around the edges, calm negative space in the center for website content, refined luxury wedding aesthetic, no readable text, no letters, no logos, no album artwork, no tour logo, no recognizable copyrighted graphics, original composition, premium and understated
+
+---
+
+## Final target
+
+When the site is finished, it should feel like:
+
+**a wedding invitation from another era, presented with the cinematic atmosphere of an eras-style tour.**
+
+The Taylor-inspired influence should be recognizable through the mood, chapter structure, color shifts, photography, and drama — **not through copied branding or obvious references.**
+
+The couple remains the main character.

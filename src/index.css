@@ -200,20 +200,10 @@
   position: fixed;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
   background:
-    radial-gradient(ellipse 600px 600px at 5% 8%, rgba(185,143,143,0.28) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 95% 5%, rgba(216,195,165,0.28) 0%, transparent 70%),
-    radial-gradient(ellipse 550px 550px at 90% 92%, rgba(185,143,143,0.24) 0%, transparent 70%),
-    radial-gradient(ellipse 600px 600px at 8% 90%, rgba(216,195,165,0.28) 0%, transparent 70%),
-    radial-gradient(ellipse 350px 350px at 20% 15%, rgba(181,154,99,0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 300px 300px at 82% 18%, rgba(181,154,99,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 320px 320px at 78% 85%, rgba(181,154,99,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 350px 350px at 15% 82%, rgba(181,154,99,0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 200px 200px at 12% 45%, rgba(216,195,165,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 200px 200px at 88% 50%, rgba(142,112,119,0.16) 0%, transparent 70%),
-    radial-gradient(ellipse 250px 250px at 50% 5%, rgba(216,195,165,0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 250px 250px at 50% 95%, rgba(185,143,143,0.12) 0%, transparent 70%),
-    linear-gradient(160deg, #FBF6EE 0%, #F6EFE3 15%, #F3E8DA 30%, #F2E7DB 48%, #F3E7D3 62%, #F6EFE4 78%, #FBF6EE 100%);
+    radial-gradient(ellipse 95% 55% at 50% -8%, rgba(254,251,245,0.95) 0%, transparent 70%),
+    linear-gradient(178deg, #FCF8F0 0%, #F8F1E6 30%, #F4EBDD 55%, #F5EEE1 78%, #FBF6EE 100%);
 }
 
 .dreamy-bg::before {
@@ -221,29 +211,10 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image:
-    radial-gradient(1.5px 1.5px at 8% 22%, rgba(181,154,99,0.4), transparent),
-    radial-gradient(1px 1px at 18% 68%, rgba(255,255,255,0.6), transparent),
-    radial-gradient(2px 2px at 12% 42%, rgba(185,143,143,0.3), transparent),
-    radial-gradient(1px 1px at 25% 15%, rgba(255,255,255,0.5), transparent),
-    radial-gradient(1.5px 1.5px at 35% 78%, rgba(181,154,99,0.35), transparent),
-    radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.55), transparent),
-    radial-gradient(1.5px 1.5px at 55% 88%, rgba(185,143,143,0.28), transparent),
-    radial-gradient(1px 1px at 65% 28%, rgba(255,255,255,0.5), transparent),
-    radial-gradient(2px 2px at 75% 62%, rgba(181,154,99,0.35), transparent),
-    radial-gradient(1px 1px at 85% 45%, rgba(255,255,255,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 92% 75%, rgba(142,112,119,0.3), transparent),
-    radial-gradient(1px 1px at 8% 85%, rgba(255,255,255,0.5), transparent),
-    radial-gradient(2px 2px at 42% 12%, rgba(181,154,99,0.35), transparent),
-    radial-gradient(1px 1px at 62% 52%, rgba(255,255,255,0.55), transparent),
-    radial-gradient(1.5px 1.5px at 78% 8%, rgba(185,143,143,0.24), transparent),
-    radial-gradient(1px 1px at 32% 55%, rgba(255,255,255,0.45), transparent),
-    radial-gradient(1.5px 1.5px at 88% 32%, rgba(181,154,99,0.35), transparent),
-    radial-gradient(1px 1px at 52% 72%, rgba(255,255,255,0.5), transparent),
-    radial-gradient(2px 2px at 22% 38%, rgba(185,143,143,0.28), transparent),
-    radial-gradient(1px 1px at 72% 18%, rgba(255,255,255,0.45), transparent);
-  background-size: 400px 400px;
-  animation: dreamyShimmer 8s ease-in-out infinite;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 
 .dreamy-bg::after {
@@ -251,31 +222,10 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image:
-    radial-gradient(80px 80px at 10% 20%, rgba(216,195,165,0.22), transparent),
-    radial-gradient(100px 100px at 88% 15%, rgba(185,143,143,0.18), transparent),
-    radial-gradient(90px 90px at 85% 88%, rgba(216,195,165,0.2), transparent),
-    radial-gradient(85px 85px at 12% 85%, rgba(185,143,143,0.16), transparent),
-    radial-gradient(60px 60px at 25% 10%, rgba(181,154,99,0.1), transparent),
-    radial-gradient(55px 55px at 75% 10%, rgba(181,154,99,0.08), transparent),
-    radial-gradient(65px 65px at 80% 80%, rgba(181,154,99,0.1), transparent),
-    radial-gradient(60px 60px at 20% 80%, rgba(181,154,99,0.08), transparent),
-    radial-gradient(120px 120px at 5% 50%, rgba(216,195,165,0.14), transparent),
-    radial-gradient(110px 110px at 95% 45%, rgba(142,112,119,0.12), transparent),
-    radial-gradient(70px 70px at 50% 3%, rgba(216,195,165,0.1), transparent),
-    radial-gradient(65px 65px at 50% 97%, rgba(185,143,143,0.08), transparent);
-  animation: dreamyBokeh 12s ease-in-out infinite alternate;
-}
-
-@keyframes dreamyShimmer {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
-}
-
-@keyframes dreamyBokeh {
-  0% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.02); }
-  100% { opacity: 0.6; transform: scale(0.98); }
+  background:
+    radial-gradient(ellipse 60% 45% at 10% 14%, rgba(185,143,143,0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 45% at 90% 88%, rgba(216,195,165,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 130% 90% at 50% 50%, transparent 62%, rgba(38,22,17,0.07) 100%);
 }
 
 .eras-satin-bg {
@@ -478,6 +428,73 @@
   opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
+}
+
+.torn-paper {
+  background:
+    linear-gradient(178deg, rgba(247,241,231,0.4) 0%, rgba(247,241,231,0) 14%, rgba(38,22,17,0.05) 100%),
+    #F2E9D8;
+  clip-path: polygon(
+    1% 2%, 5% 0.6%, 9% 1.8%, 13% 0.4%, 17% 1.5%, 22% 0.7%, 27% 1.7%, 32% 0.5%, 37% 1.6%, 42% 0.8%,
+    47% 1.8%, 52% 0.5%, 57% 1.5%, 62% 0.7%, 67% 1.7%, 72% 0.5%, 77% 1.6%, 82% 0.8%, 87% 1.5%, 92% 0.5%,
+    96% 1.8%, 99% 1%, 99.6% 8%, 99.2% 16%, 99.7% 24%, 99.1% 32%, 99.6% 40%, 99.2% 48%, 99.7% 56%,
+    99.1% 64%, 99.6% 72%, 99.2% 80%, 99.7% 88%, 99.4% 96%, 97% 99%, 92% 98.3%, 87% 99.4%, 82% 98.2%,
+    77% 99.5%, 72% 98.4%, 67% 99.4%, 62% 98.2%, 57% 99.5%, 52% 98.4%, 47% 99.3%, 42% 98.3%, 37% 99.5%,
+    32% 98.4%, 27% 99.4%, 22% 98.3%, 17% 99.5%, 12% 98.5%, 7% 99.3%, 3% 98.4%, 1% 97%, 0.6% 90%, 0.3% 82%
+  );
+}
+
+.countdown-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 62% 58% at 50% 64%, rgba(216,195,165,0.2) 0%, rgba(185,143,143,0.08) 42%, transparent 72%);
+}
+
+.countdown-sparkle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 20%, rgba(216,195,165,0.85), transparent),
+    radial-gradient(1px 1px at 26% 68%, rgba(255,251,243,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 58% 14%, rgba(181,154,99,0.7), transparent),
+    radial-gradient(1px 1px at 76% 44%, rgba(255,251,243,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 38% 86%, rgba(216,195,165,0.7), transparent),
+    radial-gradient(1px 1px at 90% 70%, rgba(255,251,243,0.75), transparent),
+    radial-gradient(1.5px 1.5px at 66% 88%, rgba(181,154,99,0.6), transparent),
+    radial-gradient(1px 1px at 8% 88%, rgba(255,251,243,0.7), transparent);
+  background-size: 220px 220px;
+}
+
+.countdown-heading-line {
+  height: 1px;
+  width: 44px;
+  background: linear-gradient(90deg, transparent, rgba(181,154,99,0.6), transparent);
+}
+
+.calendar-band {
+  position: relative;
+  background:
+    radial-gradient(90% 120% at 12% 0%, rgba(216,195,165,0.35) 0%, transparent 55%),
+    radial-gradient(100% 130% at 88% 100%, rgba(185,143,143,0.18) 0%, transparent 55%),
+    linear-gradient(180deg, #F8F3EA 0%, #EFE4D2 100%);
+}
+
+.calendar-stardust {
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%, rgba(216,195,165,0.7), transparent),
+    radial-gradient(1px 1px at 18% 84%, rgba(255,251,243,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 82% 18%, rgba(216,195,165,0.6), transparent),
+    radial-gradient(1px 1px at 92% 70%, rgba(255,251,243,0.5), transparent),
+    radial-gradient(1px 1px at 68% 92%, rgba(181,154,99,0.45), transparent),
+    radial-gradient(1px 1px at 34% 6%, rgba(255,251,243,0.4), transparent);
+  background-size: 260px 260px;
+}
+
+.calendar-paper-shadow {
+  box-shadow: 0 24px 48px -24px rgba(22,12,14,0.55);
 }
 
 @media (prefers-reduced-motion: reduce) {
