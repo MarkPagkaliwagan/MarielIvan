@@ -267,7 +267,7 @@ function DressCodeDetails() {
 
           <motion.p
             variants={item}
-            className="mx-auto mt-5 max-w-md text-center text-[clamp(0.95rem,3.6vw,1.08rem)] leading-relaxed"
+            className="mx-auto mt-4 max-w-md text-center text-[clamp(0.95rem,3.6vw,1.08rem)] leading-relaxed"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 500,
