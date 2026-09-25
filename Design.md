@@ -89,6 +89,18 @@ Soft Gray      #8C8582
 White          #FFFFFF
 ```
 
+### Eras-in-satin accents
+
+A soft, romantic family of tones inspired by the Lover-era mood: blush satin, peach fuzz, and champagne gold. Use these for chapter sections that should feel like satin silk in warm light, always with a smooth, muted feel.
+
+```text
+Blush Eras     #F6D4C4
+Peach Fuzz     #F5C9A8
+Champagne Gold #EAD8B2
+```
+
+The Wedding Day timeline uses these as a satin-silk backdrop with burgundy text and deep mauve labels.
+
 ### How to use them
 
 **Burgundy** should be the strongest identity color.

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import EnvelopeCover from "./components/EnvelopeCover";
 import InvitationHero from "./components/InvitationHero";
+import WeddingTimeline from "./components/WeddingTimeline";
+import DressCodeDetails from "./components/DressCodeDetails";
 import EventDetails from "./components/EventDetails";
 import DesktopGate from "./components/DesktopGate";
 import entireBg from "./assets/BG/Entirebg.webp";
@@ -54,6 +56,8 @@ function App() {
             <div className="relative z-10 w-full">
               <InvitationHero />
               <EventDetails />
+              <WeddingTimeline />
+              <DressCodeDetails />
             </div>
           )}
 
