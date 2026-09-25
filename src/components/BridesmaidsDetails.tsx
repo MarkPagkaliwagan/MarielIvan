@@ -2,9 +2,8 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const BURGUNDY = "#6D343D";
 const MAUVE_DARK = "#755961";
-const BLUSH = "#F6D4C4";
-const PEACH = "#F5C9A8";
-const CHAMPAGNE_GOLD = "#EAD8B2";
+const CREAM = "#F3EBDD";
+const LILAC = "#D8CCE8";
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const ERAS = [
@@ -37,32 +36,32 @@ function BridesmaidsDetails() {
           className="pointer-events-none absolute inset-0"
           style={{
             opacity: 0.8,
-            background: `linear-gradient(180deg, ${BLUSH} 0%, ${PEACH} 48%, ${CHAMPAGNE_GOLD} 100%)`,
+            background: `linear-gradient(180deg, ${CREAM} 0%, ${CREAM} 40%, ${LILAC} 100%)`,
           }}
         />
         <div className="venue-grain-overlay" aria-hidden="true" />
         <div className="relative z-10 text-center">
           <p
-            className="whitespace-nowrap text-[clamp(0.72rem,3vw,1rem)] uppercase tracking-[0.12em] sm:tracking-[0.18em]"
+            className="text-center leading-none"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 600,
+              fontFamily: "'Great Vibes', cursive",
               color: BURGUNDY,
+              fontSize: "clamp(1.2rem,4vw,2rem)",
+              letterSpacing: "0.02em",
             }}
           >
             For the Bridesmaids and Maid of Honor
           </p>
 
           <p
-            className="mt-2 text-[clamp(0.8rem,3vw,0.95rem)] tracking-[0.16em]"
+            className="mt-3 text-center text-[clamp(0.8rem,3vw,0.95rem)] uppercase tracking-[0.22em]"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: "italic",
-              fontWeight: 500,
-              color: MAUVE_DARK,
+              fontWeight: 600,
+              color: BURGUNDY,
             }}
           >
-            + Theme: Eras in Satin Silk +
+            Theme: Eras in Satin Silk
           </p>
 
           <p
@@ -74,10 +73,10 @@ function BridesmaidsDetails() {
               textWrap: "balance",
             }}
           >
-Our bridesmaids will each carry a different era, a story told through
-          color. Every gown draws from a single album, so together they walk
-          through all of our Eras in order.
-        </p>
+            Our bridesmaids will each carry a different era, a story told
+            through color. Every gown draws from a single album, so together
+            they walk through all of our Eras in order.
+          </p>
 
           <ul
             className="mx-auto mt-6 flex max-w-xl flex-nowrap items-center justify-center gap-2.5"
