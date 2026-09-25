@@ -7,8 +7,9 @@ const BLUSH = "#F6D4C4";
 const MAUVE_DARK = "#755961";
 const CHAMPAGNE = "#EAD8B2";
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
-const MONO =
-  "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
+
+const GOOGLE_SCRIPT_URL =
+  (import.meta.env.VITE_GOOGLE_SCRIPT_URL as string | undefined)?.trim() ?? "";
 
 type Attendance = "" | "accepts" | "declines";
 
@@ -55,16 +56,71 @@ function Rsvp() {
   const [companionName, setCompanionName] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const accepting = attending === "accepts";
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!fullName.trim() || attending === "") {
       setError("Please enter your name and choose a response.");
       return;
     }
+
+    if (submitting) {
+      return;
+    }
+
     setError("");
-    setSubmitted(true);
+    setSubmitting(true);
+
+    if (!GOOGLE_SCRIPT_URL) {
+      setError("RSVP is not configured yet. Please try again later.");
+      setSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({
+          fullName: fullName.trim(),
+          attending:
+            attending === "accepts"
+              ? "I'll be there"
+              : "I'll be there in spirit",
+          guests: accepting ? guests : 0,
+          companionName: accepting ? companionName.trim() : "",
+          message: message.trim(),
+        }),
+      });
+
+      let result: { success?: boolean; error?: string } | null = null;
+      try {
+        result = await response.json();
+      } catch {
+        result = null;
+      }
+
+      if (!response.ok || !result?.success) {
+        setError(
+          result?.error ??
+            "We could not send your RSVP. Please try again in a moment.",
+        );
+        setSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(
+        "We could not reach the RSVP service. Please check your connection and try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -379,7 +435,8 @@ function Rsvp() {
 
               <button
                 type="submit"
-                className="mx-auto flex min-h-[44px] w-auto items-center justify-center rounded-sm px-8 uppercase tracking-[0.18em] transition-opacity focus:outline-none focus:ring-2 focus:ring-[#6D343D] focus:ring-offset-2 active:opacity-80"
+                disabled={submitting}
+                className="mx-auto flex min-h-[44px] w-auto items-center justify-center rounded-sm px-8 uppercase tracking-[0.18em] transition-opacity focus:outline-none focus:ring-2 focus:ring-[#6D343D] focus:ring-offset-2 disabled:opacity-70 active:opacity-80"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 600,
@@ -390,7 +447,7 @@ function Rsvp() {
                   boxShadow: "0 6px 16px rgba(109, 52, 61, 0.25)",
                 }}
               >
-                Confirm RSVP
+                {submitting ? "Sending RSVP..." : "Confirm RSVP"}
               </button>
 
               <p
