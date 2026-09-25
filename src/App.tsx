@@ -5,6 +5,7 @@ import WeddingTimeline from "./components/WeddingTimeline";
 import DressCodeDetails from "./components/DressCodeDetails";
 import EntourageDetails from "./components/EntourageDetails";
 import GentleReminders from "./components/GentleReminders";
+import Rsvp from "./components/Rsvp";
 import EventDetails from "./components/EventDetails";
 import DesktopGate from "./components/DesktopGate";
 import entireBg from "./assets/BG/Entirebg.webp";
@@ -62,6 +63,7 @@ function App() {
               <DressCodeDetails />
               <EntourageDetails />
               <GentleReminders />
+              <Rsvp />
             </div>
           )}
 
